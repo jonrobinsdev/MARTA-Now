@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="blueLineColor">#0094D5</color>
+    <color name="greenLineColor">#65BD45</color>
+    <color name="redLineColor">#EA2627</color>
+    <color name="goldLineColor">#FFEB12</color>
+</resources>

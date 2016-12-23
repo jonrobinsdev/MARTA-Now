@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@color/colorPrimary"
+    android:layout_weight="1" >
+
+    <ImageView
+        android:id="@+id/trainIcon"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical = "true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/train_icon" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical = "true"
+        android:layout_toRightOf="@+id/trainIcon"
+        android:layout_toLeftOf="@+id/editButton"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:text="test test test test test test  test test test test test test" />
+
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:layout_centerVertical = "true"
+        android:background="@drawable/edit_icon" />
+</RelativeLayout>
