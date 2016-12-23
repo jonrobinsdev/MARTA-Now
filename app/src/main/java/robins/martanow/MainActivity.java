@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         goldLineFragment = (TrainArrivalFragment)getSupportFragmentManager().findFragmentById(R.id.goldLineFragment);
 
         setTrainFragmentColors();
+        MartaRestServiceReader.getAllTrainData();
     }
 
     private void setTrainFragmentColors(){
