@@ -1,9 +1,6 @@
 package robins.martanow;
 
-import android.graphics.Color;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import robins.martanow.TrainArrivalFragment;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         goldLineFragment = (TrainArrivalFragment)getSupportFragmentManager().findFragmentById(R.id.goldLineFragment);
 
         setTrainFragmentColors();
-        new MartaRestServiceReader().execute();
+        setFragmentDataFromApi();
     }
 
     private void setTrainFragmentColors(){
@@ -33,5 +30,14 @@ public class MainActivity extends AppCompatActivity {
         greenLineFragment.getView().setBackgroundResource(R.color.greenLineColor);
         redLineFragment.getView().setBackgroundResource(R.color.redLineColor);
         goldLineFragment.getView().setBackgroundResource(R.color.goldLineColor);
+    }
+
+    private void setFragmentDataFromApi() {
+        new MartaApiReader() {
+            @Override
+            protected void onPostExecute(String[] result ) {
+                super.onPostExecute(result);
+            }
+        }.execute();
     }
 }
