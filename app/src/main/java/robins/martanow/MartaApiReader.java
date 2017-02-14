@@ -32,7 +32,6 @@ public class MartaApiReader extends AsyncTask<String, Void, String[]> {
             String strTemp = "";
             while (null != (strTemp = br.readLine())) {
                 data[0] = strTemp;
-                parseApiResult(strTemp);
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -40,32 +39,4 @@ public class MartaApiReader extends AsyncTask<String, Void, String[]> {
         return data;
     }
 
-    private String parseApiResult(String result) {
-        //parse into individual stations
-        JSONArray trainJson = convertStringToJsonArray(result);
-
-        //iterate through json array
-        try {
-            for (int i = 0; i < trainJson.length();  i++){
-                JSONObject station = trainJson.getJSONObject(i);
-                System.out.println(station.getString("STATION"));
-                if (station.getString("STATION").equals("AIRPORT STATION")) {
-                    System.out.println(station.toString());
-                }
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return result;
-    }
-
-    private JSONArray convertStringToJsonArray(String result){
-        JSONArray jsonObj = null;
-        try {
-            jsonObj = new JSONArray(result);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        return jsonObj;
-    }
 }

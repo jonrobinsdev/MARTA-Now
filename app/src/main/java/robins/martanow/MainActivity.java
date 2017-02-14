@@ -3,18 +3,26 @@ package robins.martanow;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import robins.martanow.helper.AppEnums;
+import robins.martanow.wayfinder.WayFinder;
+
+import static robins.martanow.helper.AppEnums.Station.Avondale;
+
 public class MainActivity extends AppCompatActivity {
 
     TrainArrivalFragment blueLineFragment;
     TrainArrivalFragment greenLineFragment;
     TrainArrivalFragment redLineFragment;
     TrainArrivalFragment goldLineFragment;
+    WayFinder wayFinder;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
+        this.wayFinder = new WayFinder(AppEnums.Station.ArtCenter, Avondale);
 
         blueLineFragment = (TrainArrivalFragment)getSupportFragmentManager().findFragmentById(R.id.blueLineFragment);
         greenLineFragment =(TrainArrivalFragment)getSupportFragmentManager().findFragmentById(R.id.greenLineFragment);
@@ -37,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String[] result ) {
                 super.onPostExecute(result);
+                System.out.println("Yo");
+                wayFinder.updateWayPointPath(result[0]);
             }
         }.execute();
     }
